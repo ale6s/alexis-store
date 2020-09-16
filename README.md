@@ -1,4 +1,4 @@
-# store
+# E-commerce Alexis Store using Vue Fetch(API)
 
 ## Project setup
 ```
