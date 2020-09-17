@@ -1,49 +1,50 @@
 <template>
   <div id="app">
-    <div class="sidenav bg-light">
-      <div class="mb-5 mt-5 col-sm-12">
-        <div class="sidenav text-center p-3">
-          <span class="font-weight-bold">
-            <span class="mb-3 mt-3" style="color:#ef5777">
-              <i class="fas fa-shopping-bag"></i> Wishlist:
+    <div class="container">
+      <div class="row bg-light">
+        <div class="mb-5 mt-5 col-sm-12 col-md-12">
+          <div class="text-center p-3">
+            <span class="font-weight-bold">
+              <span class="mb-3 mt-3" style="color:#ef5777">
+                <i class="fas fa-shopping-bag"></i> Wishlist:
+              </span>
+              <b class="text-dark">{{wishlist.length}}</b>
             </span>
-            <b class="text-dark">{{wishlist.length}}</b>
-          </span>
-          <br />
-          <span class="font-weight-bold">
-            <span class="mb-3 mt-3" style="color:#ef5777">
-              <i class="fas fa-shopping-cart"></i> Shopping Cart:
+            <br />
+            <span class="font-weight-bold">
+              <span class="mb-3 mt-3" style="color:#ef5777">
+                <i class="fas fa-shopping-cart"></i> Shopping Cart:
+              </span>
+              <b class="text-dark">{{cart.length}}</b>
             </span>
-            <b class="text-dark">{{cart.length}}</b>
-          </span>
-          <hr />
-          <span class="font-weight-bold form-inline mt-5" id="asidebar" style="color:#ef5777">
-            <label for>Search by Price $</label>
-            <input
-              class="form-control w-5 mb-2 mt-2 border-top-0 border-right-0"
-              type="number"
-              min="0"
-              max="200"
-              v-model="price"
-            />
-          </span>
-          <div class="mt-4">
-            <label class="float-left">
-              Min
-              <b>$0</b>
-            </label>
-            <label class="float-right">
-              Max
-              <b>$200</b>
-            </label>
-            <input type="range" class="custom-range" min="0" max="200" v-model="price" />
+            <hr />
+            <span class="font-weight-bold form-inline mt-5" id="asidebar" style="color:#ef5777">
+              <label for>Search by Price $</label>
+              <input
+                class="form-control w-5 mb-2 mt-2 border-top-0 border-right-0"
+                type="number"
+                min="0"
+                max="200"
+                v-model="price"
+              />
+            </span>
+            <div class="mt-4">
+              <label class="float-left">
+                Min
+                <b>$0</b>
+              </label>
+              <label class="float-right">
+                Max
+                <b>$200</b>
+              </label>
+              <input type="range" class="custom-range" min="0" max="200" v-model="price" />
+            </div>
           </div>
-          <hr />
         </div>
       </div>
-    </div>
-    <br />
-    <div class="container">
+
+      <hr />
+
       <div class="row mb-5">
         <div class="col-lg-3 col-md-4 col-sm-6 mb-3" v-for="item in products" :key="item.id">
           <div v-if="item.price <= Number(price)">
